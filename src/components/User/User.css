@@ -1,0 +1,54 @@
+.superuser-page-user{
+    cursor: pointer;
+    padding: 40px 20px;
+    width: 100%;
+    background-color: #333036;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: .1s all ease-out;
+    transform: scale(1);
+}
+
+.superuser-page-user-name{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.superuser-page-user-category{
+    margin-bottom: 5px;
+}
+
+.superuser-page-user:hover{
+    background-color: #353238;
+    transform: scale(1.005);
+}
+
+.superuser-page-user-statuses{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 600px){
+    .superuser-page-user-statuses{
+        gap: 10px;
+        justify-content: flex-start;
+    }
+}
+
+.superuser-user-status{
+    color: #fff;
+    background-color: #2f2c31;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.superuser-user-status:hover{
+    background-color: #554F57;
+}
+
+.superuser-user-status-active{
+    background-color: #403C43;
+}

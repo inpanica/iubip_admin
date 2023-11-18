@@ -1,0 +1,19 @@
+.admin-task{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #333036;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.admin-task-desc{
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.admin-task > :not(:last-child){
+    margin-bottom: 40px;
+}
