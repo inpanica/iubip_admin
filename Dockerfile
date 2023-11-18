@@ -4,7 +4,6 @@ WORKDIR /app
 COPY package*.json /app/
 RUN npm i vite -g
 RUN npm install --legacy-peer-deps --production
-RUN npm install --legacy-peer-deps @rollup/rollup-linux-x64-musl
 
 COPY . /app
 
