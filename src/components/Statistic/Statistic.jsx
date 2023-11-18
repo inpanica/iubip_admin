@@ -63,7 +63,7 @@ function Statistic() {
         tasks.map((t) => list[t.category] += 1)
         let newList = []
         Object.keys(list).forEach((name) => {
-            newList.push({name: name, value: list[name]})
+            newList.push({ name: name, value: list[name] })
         })
         setCategoryTop(newList)
         return list
@@ -78,7 +78,7 @@ function Statistic() {
         tasks.map((t) => list[t.importance] += 1)
         let newList = []
         Object.keys(list).forEach((name) => {
-            newList.push({name: name.replace('_priority', ''), value: list[name]})
+            newList.push({ name: name.replace('_priority', ''), value: list[name] })
         })
         setImportanceTop(newList)
         return list
@@ -98,6 +98,10 @@ function Statistic() {
     useEffect(() => {
         refreshTasks()
         getUsers();
+        const i = setInterval(() => {
+            refreshTasks()
+            getUsers();
+        }, 10000)
     }, [])
 
     useEffect(() => {
@@ -133,12 +137,12 @@ function Statistic() {
                     </div>
                 </div>
                 <div className="stats-block">
-                <h3 className="main-stats-feild-title">Статистика категорий:</h3>
-                    <Chart data={categoryTop}/>
+                    <h3 className="main-stats-feild-title">Статистика категорий:</h3>
+                    <Chart data={categoryTop} />
                 </div>
                 <div className="stats-block">
-                <h3 className="main-stats-feild-title">Статистика важности вопросов:</h3>
-                    <Diagram data={importanceTop}/>
+                    <h3 className="main-stats-feild-title">Статистика важности вопросов:</h3>
+                    <Diagram data={importanceTop} />
                 </div>
             </div>
         </div>
