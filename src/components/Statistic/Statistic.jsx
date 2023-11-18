@@ -80,9 +80,7 @@ function Statistic() {
         Object.keys(list).forEach((name) => {
             newList.push({name: name.replace('_priority', ''), value: list[name]})
         })
-        console.log(newList);
         setImportanceTop(newList)
-        console.log(importanceTop);
         return list
     }
 
