@@ -61,6 +61,15 @@ export const getStatuses = (list, reverse = false) => {
         "is_competent_in_cancel_order": false,
         "is_competent_in_check_invoice": false
     }
+    if (list.includes(true) || list.includes(false)){
+        let newList = list
+        list = []
+        for (let i in newList) {
+            if (newList[i]) {
+                list.push(Number(i))
+            }
+        }
+    }
     let newStatuses = defaultStatuses;
     Object.keys(newStatuses).forEach((key, index) => {
         if (list.includes(index)) {

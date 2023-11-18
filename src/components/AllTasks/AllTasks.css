@@ -1,0 +1,33 @@
+.alltask-task-body{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.alltasks-task-feild-desc{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.alltasks-task{
+    margin-bottom: 40px;
+    background-color: #353238;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.all-tasks-user{
+    margin: 0;
+    margin-top: 20px;
+}
+
+.alltasks-task-title{
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.all-tasks-search{
+    margin-bottom: 40px;
+}

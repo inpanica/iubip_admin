@@ -1,4 +1,5 @@
-.admin-task{
+.admin-task {
+    position: relative;
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -7,13 +8,37 @@
     margin-top: 20px;
 }
 
-.admin-task-desc{
+.admin-task-desc {
     color: #fff;
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: 700;
 }
 
-.admin-task > :not(:last-child){
+.admin-task> :not(:last-child) {
     margin-bottom: 40px;
+}
+
+.delete-button-wrapper {
+    max-height: 0px;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.admin-task:hover .delete-button-wrapper {
+    max-height: 100px;
+}
+
+.delete-button {
+    width: 150px;
+    border: 1px solid #333036;
+    border-radius: 5px;
+    
+}
+
+.delete-button:hover {
+    border: 1px solid rgb(214, 64, 84);
 }

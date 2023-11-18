@@ -91,6 +91,7 @@
 
     .user-cabinet{
         padding: 30px 15px;
+        flex-direction: column;
     }
 }
 

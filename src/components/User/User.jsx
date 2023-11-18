@@ -2,9 +2,9 @@ import './User.css'
 import { useEffect, useRef, useState } from 'react'
 import config from '../../../config.js'
 import { getStatuses } from '../../../actionsAdvanced.js'
-import { changeStatusTable } from '../../../actions.js'
+import { changeStatusTable, getUsersTasks } from '../../../actions.js'
 
-function User({ user, ...props }) {
+function User({ user, setCurrentUsersTasks, setCurrentUser, ...props }) {
 
     const [status, setStatus] = useState({})
 
@@ -37,13 +37,20 @@ function User({ user, ...props }) {
         }
         newStatus = getStatuses(list)
         const response = await changeStatusTable({...newStatus, email: user.email})
-        if (response.status === 200){
-            setStatus(newStatus)
+        if (response.status === 200)
+        setStatus(newStatus)
+    }
+
+    const getMyTasks = async () => {
+        const response = await getUsersTasks(user.email)
+        if(response.status === 200){
+            setCurrentUsersTasks(response.data)
+            setCurrentUser(user)
         }
     }
 
     return (
-        <div onClick={() => console.log(user.full_name)} className='superuser-page-user'>
+        <div onClick={getMyTasks} className='superuser-page-user'>
             <div className="user-main">
                 <img className='user-photo' src={config.url + '/' + user.photo} alt="" />
                 <div className="user-main-text">

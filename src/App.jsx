@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
 import Authorization from './components/Authorization/Authorization.jsx'
 import AdminPage from './components/AdminPage/AdminPage.jsx'
 import SuperUser from './components/SuperUser/SuperUser.jsx'
+import AllTasks from './components/AllTasks/AllTasks.jsx'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
             {user.name ?
                 <Routes>
                     {user.admin && <Route path='/admin' element={<SuperUser user={user} setUser={setUser}/>} />}
+                    {user.admin && <Route path='/tasks' element={<AllTasks/>} />}
                     <Route path='/' element={<AdminPage user={user} setUser={setUser} />} />
                     <Route path='/*' element={<Navigate to='/' />} />
                 </Routes> :

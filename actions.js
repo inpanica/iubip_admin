@@ -137,3 +137,44 @@ export const changeStatusTable = async (statuses) => {
     }
 }
 
+export const getUsersTasks = async (email) => {
+    try {
+        const response = await axios.get(config.url + `/task/get?email=${email}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        return response
+    }
+    catch (e) {
+        return e.response
+    }
+}
+
+export const deleteUsersTasks = async (id) => {
+    try {
+        const response = await axios.delete(config.url + `/task/delete?id_=${id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        return response
+    }
+    catch (e) {
+        return e.response
+    }
+}
+
+export const getALlTasks = async () => {
+    try {
+        const response = await axios.get(config.url + `/task/all`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        return response
+    }
+    catch (e) {
+        return e.response
+    }
+}

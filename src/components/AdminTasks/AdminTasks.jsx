@@ -1,15 +1,28 @@
 import './AdminTasks.css'
 import AdminTask from '../AdminTask/AdminTask.jsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getUsersTasks } from '../../../actions.js'
 
-function AdminTasks({ ...props }) {
+function AdminTasks({ user, ...props }) {
 
-    const [tasks, setTasks] = useState([{ text: 'Я пытался войти в мобильный банк, но при входе увидел, что моя карта не работает. Что мне делать, мне срочно нужно совершить по ней перевод!', contact: 'tg: kakaka', priority: 'Важна)', category: 'Попы' }])
+    const [tasks, setTasks] = useState([])
+
+    useEffect(() => {
+        getMyTasks()
+    }, [])
+
+    const getMyTasks = async () => {
+        const response = await getUsersTasks(user.email)
+        if(response.status === 200){
+            setTasks(response.data)
+        }
+    }
 
     return (
         <div className='admin-tasks'>
+            <h2 className="h1-title admin-h2-title">{tasks[0] ? 'Вопросы, адресованные вам' : 'Нет заданных вам вопросов'}</h2>
             {tasks.map((t) =>
-                <AdminTask key={t.text} text={t.text} contact={t.contact} category={t.category} priority={t.priority} />
+                <AdminTask key={t.id} getMyTasks={getMyTasks} text={t.description} contact={t.contact} category={t.category} importance={t.importance} id={t.id}/>
             )}
         </div>
     )

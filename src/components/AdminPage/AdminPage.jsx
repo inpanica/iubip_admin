@@ -6,7 +6,6 @@ import ChangeForm from '../ChangeForm/ChangeForm.jsx'
 import AdminTasks from '../AdminTasks/AdminTasks.jsx'
 import { Link } from 'react-router-dom'
 import config from '../../../config.js'
-import { getStatuses } from '../../../actionsAdvanced.js'
 
 function AdminPage({ user, setUser, ...props }) {
 
@@ -19,10 +18,6 @@ function AdminPage({ user, setUser, ...props }) {
         localStorage.removeItem('refresh')
         setUser({ name: '', email: '', admin: false, status: '', photo: '' })
     }
-
-    useEffect(() => {
-        console.log(user);
-    }, [user])
 
     return (
         <div className='admin-page'>
@@ -45,13 +40,11 @@ function AdminPage({ user, setUser, ...props }) {
                             </div>
                         </div>
                     </div>
+                    
                     {(!user.admin && user.status) &&
                         <div className="user-category">
                             {Object.keys(user.status).map((s) => {
                                 if (user.status[s]) {
-                                    return <div className='user-cat' key={s} >{s.replace('is_competent_in_', '')}</div>
-                                }
-                                else {
                                     return <div className='user-cat' key={s} >{s.replace('is_competent_in_', '')}</div>
                                 }
                             })}
@@ -66,8 +59,7 @@ function AdminPage({ user, setUser, ...props }) {
                     }
                     <Link ref={adminLinkRef} to='/admin' hidden></Link>
                 </div>
-                <h2 className="h1-title admin-h2-title">Вопросы, адресованные вам</h2>
-                <AdminTasks />
+                <AdminTasks user={user}/>
             </div>
         </div>
     )

@@ -24,7 +24,6 @@ function ChangeForm({ user, setUser, setIsChanging, ...props }) {
             const file_name = user.email + photoRef.current.files[0].name
             const new_file = new File([photoRef.current.files[0]], file_name, {type: photoRef.current.files[0].type});
             formdata.append('photo', new_file)
-            console.log(new_file);
             const photoResponse = await changePhoto(formdata, localStorage.getItem('access'))
         }
         if (response.status === 200) {

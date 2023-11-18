@@ -1,0 +1,20 @@
+.admin-window {
+    height: auto;
+    padding: 40px 20px;
+    box-shadow: 0px 4px 20px 0px rgba(27, 25, 28, 0.40);
+    border-radius: 10px;
+    background-color: #333036;
+}
+
+.admin-fullscreen {
+    overflow-y: scroll;
+    padding-bottom: 100px;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.admin-window-feild {
+    margin-bottom: 20px !important;
+}
