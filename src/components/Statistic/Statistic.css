@@ -1,0 +1,41 @@
+.stats-block{
+    margin-top: 20px;
+    padding: 40px 20px;
+    background-color: #333036;
+    border-radius: 10px;
+}
+
+.main-stats-wrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.main-stats-feild{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #403C43;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s all ease-out;
+}
+
+.main-stats-feild:hover{
+    background-color: #554F57;
+}
+
+.main-stats-feild-title{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.main-stats-feild-info{
+    font-size: 16px;
+    font-weight: 700;
+}

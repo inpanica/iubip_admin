@@ -18,6 +18,7 @@ function SuperUser({ user, setUser, ...props }) {
 
     const userLinkRef = useRef(null)
     const tasksPageLinkRef = useRef(null)
+    const statisticLinkRef = useRef(null)
 
     useEffect(() => {
         const onMountFun = async () => {
@@ -84,10 +85,11 @@ function SuperUser({ user, setUser, ...props }) {
                 <div className="user-buttons">
                     <Button handleClick={() => userLinkRef.current.click()} className='cabinet-btn'>Личный кабинет</Button>
                     <Button handleClick={() => addTestUsers()} className='cabinet-btn'>Тест</Button>
-                    <Button handleClick={() => console.log('')} className='cabinet-btn'>Статистика</Button>
+                    <Button handleClick={() => statisticLinkRef.current.click()} className='cabinet-btn'>Статистика</Button>
                     <Button handleClick={() => tasksPageLinkRef.current.click()} className='cabinet-btn'>Вопросы</Button>
                     <Link ref={userLinkRef} to='/' hidden></Link>
                     <Link ref={tasksPageLinkRef} to='/tasks' hidden></Link>
+                    <Link ref={statisticLinkRef} to='/statistic' hidden></Link>
                 </div>
                 <div className="search">
                     <Input inputValue={searchQuerry} changeValueFun={(e) => setSearchQuerry(e.target.value)} placeholder='Поиск...' className='search-input'/>

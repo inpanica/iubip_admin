@@ -16,7 +16,6 @@ function AllTasks() {
 
     const refreshTasks = async () => {
         const response = await getALlTasks()
-        console.log(response);
         setTasks(response.data)
     }
 
